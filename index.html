@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Royston Realty — Premium Property Advisory in Bengaluru</title>
+<meta name="description" content="Royston Realty is a premium-only property advisory in Bengaluru. Sales, leasing, land, property management, civil works, interior design and legal — one accountable team, every fee in writing.">
+<link rel="canonical" href="https://roystonrealty.in/">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Royston Realty — Premium Property Advisory">
+<meta property="og:description" content="Fewer clients. Sharper judgement. Clearer answers. Premium-only property advisory in Bengaluru.">
+<meta property="og:url" content="https://roystonrealty.in/">
+<meta property="og:image" content="https://roystonrealty.in/assets/lion-gold.png">
+<meta name="theme-color" content="#14120f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"RealEstateAgent","name":"Royston Realty","url":"https://roystonrealty.in","logo":"https://roystonrealty.in/assets/lion-gold.png","telephone":"+918123125757","email":"support@roystonrealty.in","slogan":"Transforming property visions into reality","areaServed":{"@type":"City","name":"Bengaluru"},"sameAs":["https://www.instagram.com/royston.realty"]}
+</script>
+<style>
+/* ---------- tokens ---------- */
+:root{
+  --onyx:#14120f;
+  --espresso:#1f1a15;
+  --umber:#2b241c;
+  --ivory:#f4efe6;
+  --alabaster:#faf7f1;
+  --linen:#ebe4d6;
+  --gold:#c9a55a;
+  --gold-deep:#a88632;
+  --stone:#8a8175;
+  --ink:#1d1811;
+  --line:rgba(29,24,17,.13);
+  --line-dark:rgba(244,239,230,.14);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Jost","Helvetica Neue",Arial,sans-serif;
+  --max:1200px;
+  --nav-h:76px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{-webkit-box-sizing:border-box;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--alabaster);color:var(--ink);font-family:var(--sans);font-weight:300;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+[id]{scroll-margin-top:var(--nav-h)}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+@media(min-width:900px){.wrap{padding:0 2.5rem}}
+
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.05;margin:0;letter-spacing:-.01em}
+h2{font-size:2.4rem}
+h3{font-size:1.6rem;font-weight:500}
+@media(min-width:900px){h2{font-size:3.4rem}}
+p{margin:0 0 1.15em}
+.lede{font-size:1.2rem;line-height:1.6}
+.kicker{display:inline-block;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;font-weight:500;color:var(--gold-deep);margin:0 0 1.5rem}
+.dark .kicker{color:var(--gold)}
+.dark{background:var(--espresso);color:var(--ivory)}
+.dark p{color:rgba(244,239,230,.76)}
+
+.btn{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:.65rem;font-weight:400;font-size:.9rem;letter-spacing:.06em;padding:1rem 1.75rem;border:1px solid var(--gold);border-radius:2px;background:transparent;-webkit-transition:background .2s,color .2s,border-color .2s;transition:background .2s,color .2s,border-color .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px;-ms-flex-negative:0;flex-shrink:0}
+.btn-gold{background:var(--gold);color:var(--onyx)}
+.btn-gold:hover{background:#d9b86b;border-color:#d9b86b}
+.btn-light{color:var(--ivory);border-color:rgba(244,239,230,.4)}
+.btn-light:hover{border-color:var(--ivory);background:rgba(244,239,230,.06)}
+.btn-ink{color:var(--ink);border-color:var(--ink)}
+.btn-ink:hover{background:var(--ink);color:var(--ivory)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;height:var(--nav-h);color:var(--ivory);-webkit-transition:background .3s,border-color .3s;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.nav.solid{background:var(--onyx);border-color:var(--line-dark)}
+@supports((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){.nav.solid{background:rgba(20,18,15,.88);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+.nav .wrap{height:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}
+.brand{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:.85rem}
+.brand img{height:42px;width:auto}
+.brand .word{font-family:var(--serif);font-size:1.4rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;line-height:1}
+.brand .word small{display:block;font-size:.58rem;letter-spacing:.36em;color:var(--gold);margin-top:.25em;font-family:var(--sans);font-weight:400}
+.nav ul{list-style:none;display:none;margin:0;padding:0;gap:2.4rem;font-size:.86rem;letter-spacing:.07em;font-weight:400}
+.nav ul a{opacity:.8;-webkit-transition:opacity .2s,color .2s;transition:opacity .2s,color .2s}
+.nav ul a:hover{opacity:1;color:var(--gold)}
+.nav .btn{display:none;padding:.65rem 1.15rem;font-size:.8rem}
+.nav-toggle{width:44px;height:44px;margin-right:-.6rem}
+.nav-toggle span{display:block;width:22px;height:1.5px;background:currentColor;margin:5px auto;-webkit-transition:-webkit-transform .25s,opacity .25s;transition:transform .25s,opacity .25s}
+.nav.open .nav-toggle span:nth-child(1){-webkit-transform:translateY(6.5px) rotate(45deg);transform:translateY(6.5px) rotate(45deg)}
+.nav.open .nav-toggle span:nth-child(2){opacity:0}
+.nav.open .nav-toggle span:nth-child(3){-webkit-transform:translateY(-6.5px) rotate(-45deg);transform:translateY(-6.5px) rotate(-45deg)}
+.nav.open{background:var(--onyx);border-color:var(--line-dark)}
+.nav.open ul{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;position:absolute;left:0;right:0;top:var(--nav-h);background:var(--onyx);padding:1.6rem 1.5rem 2rem;gap:1.25rem;font-size:1.1rem;border-bottom:1px solid var(--line-dark)}
+@media(min-width:960px){.nav ul{display:-webkit-box;display:-ms-flexbox;display:flex}.nav .btn{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex}.nav-toggle{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100vh;min-height:100svh;background:var(--onyx);color:var(--ivory);display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;overflow:hidden;padding-top:var(--nav-h)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(201,165,90,.14),transparent 60%),radial-gradient(ellipse 50% 60% at 10% 100%,rgba(43,36,28,.9),transparent 70%)}
+.hero .lion{position:absolute;right:-8%;top:50%;-webkit-transform:translateY(-48%);transform:translateY(-48%);width:min(62vw,820px);opacity:.10;pointer-events:none;-webkit-user-select:none;user-select:none}
+.hero .grid{position:relative;display:grid;gap:3rem;padding-top:5rem;padding-bottom:6rem}
+.hero .over{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--gold);margin:0 0 1.4rem;font-weight:400}
+.hero h1{font-size:clamp(2.9rem,7vw,6.2rem);max-width:13ch;font-weight:300}
+.hero h1 strong{font-weight:500}
+.hero .lede{max-width:33rem;margin:2.2rem 0 2.8rem;color:rgba(244,239,230,.78)}
+.hero .cta{display:-webkit-box;display:-ms-flexbox;display:flex;gap:1rem;-ms-flex-wrap:wrap;flex-wrap:wrap}
+.hero .side{display:none}
+@media(min-width:960px){
+  .hero .grid{grid-template-columns:1.25fr .75fr;-webkit-box-align:end;-ms-flex-align:end;align-items:end}
+  .hero .side{display:block;border-left:1px solid var(--line-dark);padding-left:2.5rem}
+  .hero .side dl{margin:0;display:grid;gap:1.6rem}
+  .hero .side dt{font-family:var(--serif);font-size:2rem;color:var(--gold);line-height:1;font-weight:400}
+  .hero .side dd{margin:.35rem 0 0;font-size:.9rem;color:rgba(244,239,230,.62);letter-spacing:.02em}
+}
+.scroll-cue{position:absolute;left:50%;bottom:2rem;-webkit-transform:translateX(-50%);transform:translateX(-50%);width:1px;height:56px;background:-webkit-gradient(linear,left top,left bottom,from(var(--gold)),to(transparent));background:linear-gradient(var(--gold),transparent);opacity:.7}
+/* one reveal on load */
+.reveal>*{opacity:0;-webkit-transform:translateY(18px);transform:translateY(18px);-webkit-animation:rise .9s var(--ease) forwards;animation:rise .9s var(--ease) forwards}
+.reveal>*:nth-child(1){-webkit-animation-delay:.1s;animation-delay:.1s}.reveal>*:nth-child(2){-webkit-animation-delay:.25s;animation-delay:.25s}.reveal>*:nth-child(3){-webkit-animation-delay:.4s;animation-delay:.4s}.reveal>*:nth-child(4){-webkit-animation-delay:.55s;animation-delay:.55s}
+@-webkit-keyframes rise{to{opacity:1;-webkit-transform:none;transform:none}}
+@keyframes rise{to{opacity:1;-webkit-transform:none;transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal>*{-webkit-animation:none;animation:none;opacity:1;-webkit-transform:none;transform:none}*{-webkit-transition:none!important;transition:none!important}}
+
+/* ---------- band ---------- */
+.band{background:var(--gold);color:var(--onyx);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:.9rem 0;overflow:hidden;white-space:nowrap}
+.band span{display:inline-block;padding:0 1.6rem}
+.band span::after{content:"◆";font-size:.5rem;margin-left:3.2rem;vertical-align:middle;opacity:.55}
+
+/* ---------- sections ---------- */
+section{padding:6rem 0}
+@media(min-width:900px){section{padding:8rem 0}}
+.two{display:grid;gap:3rem}
+@media(min-width:900px){.two{grid-template-columns:5fr 6fr;gap:6rem;-webkit-box-align:start;-ms-flex-align:start;align-items:start}}
+
+/* manifesto */
+.manifesto{background:var(--alabaster)}
+.manifesto h2{max-width:20ch;font-size:clamp(2rem,4.2vw,3.6rem);font-weight:300}
+.manifesto h2 em{font-style:italic;font-weight:400}
+.manifesto .body p{max-width:38rem}
+.frame{position:relative;border:1px solid var(--gold-deep);padding:1px;margin-top:3rem}
+.frame .in{background:var(--espresso);aspect-ratio:4/5;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;position:relative;overflow:hidden}
+.frame .in::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(201,165,90,.22),transparent 55%)}
+.frame img{width:62%;position:relative}
+.frame figcaption{position:absolute;left:1.6rem;right:1.6rem;bottom:1.4rem;color:var(--ivory);font-family:var(--serif);font-style:italic;font-size:1.15rem;opacity:.9;text-shadow:0 1px 12px rgba(0,0,0,.6)}
+@media(max-width:600px){.frame .in{aspect-ratio:1/1}.frame img{width:50%;-webkit-transform:translateY(-12%);transform:translateY(-12%)}}
+@media(min-width:900px){.frame{margin-top:0}}
+.marks{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:1px solid var(--line);padding-top:2rem}
+.marks b{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:400;color:var(--gold-deep);line-height:1}
+.marks span{font-size:.86rem;color:var(--stone);display:block;margin-top:.5rem;line-height:1.4}
+
+/* services index */
+.services{background:var(--ivory)}
+.services .head{display:grid;gap:1.5rem;margin-bottom:3.5rem}
+@media(min-width:900px){.services .head{grid-template-columns:1fr 1fr;-webkit-box-align:end;-ms-flex-align:end;align-items:end}.services .head p{margin:0;max-width:34rem}}
+.idx{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.idx li{border-bottom:1px solid var(--line)}
+.idx button{width:100%;display:grid;grid-template-columns:2.5rem 1fr auto;-webkit-box-align:center;-ms-flex-align:center;align-items:center;gap:1.2rem;text-align:left;padding:1.6rem 0}
+.idx .n{font-family:var(--serif);color:var(--gold-deep);font-size:1rem}
+.idx h3{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:400;-webkit-transition:color .2s;transition:color .2s}
+.idx button:hover h3{color:var(--gold-deep)}
+.idx .pm{width:36px;height:36px;border:1px solid var(--line);border-radius:50%;position:relative;-webkit-transition:border-color .2s,background .2s;transition:border-color .2s,background .2s}
+.idx .pm::before,.idx .pm::after{content:"";position:absolute;background:var(--ink);left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transition:-webkit-transform .3s var(--ease),background .2s;transition:transform .3s var(--ease),background .2s}
+.idx .pm::before{width:12px;height:1px}.idx .pm::after{width:1px;height:12px}
+.idx li.open .pm{background:var(--ink);border-color:var(--ink)}
+.idx li.open .pm::before,.idx li.open .pm::after{background:var(--ivory)}
+.idx li.open .pm::after{-webkit-transform:translate(-50%,-50%) rotate(90deg);transform:translate(-50%,-50%) rotate(90deg)}
+.idx .panel{display:grid;grid-template-rows:0fr;-webkit-transition:grid-template-rows .45s var(--ease);transition:grid-template-rows .45s var(--ease)}
+.idx li.open .panel{grid-template-rows:1fr}
+.idx .panel>div{overflow:hidden}
+.idx .body{display:grid;gap:1.5rem;padding:0 0 2.4rem 3.7rem}
+@media(min-width:900px){.idx .body{grid-template-columns:1.2fr 1fr;gap:4rem}}
+.idx .body p{max-width:36rem;margin:0;color:#4b4339}
+.idx .body ul{list-style:none;margin:0;padding:0;font-size:.98rem}
+.idx .body ul li{border:0;padding:.45rem 0 .45rem 1.3rem;position:relative}
+.idx .body ul li::before{content:"";position:absolute;left:0;top:1.05em;width:14px;height:1px;background:var(--gold-deep)}
+.idx .body ul li:first-child{padding-top:0}.idx .body ul li:first-child::before{top:.6em}
+
+/* who */
+.who{background:var(--alabaster)}
+.who h2{max-width:14ch}
+.who .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:3.5rem}
+@media(min-width:700px){.who .grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.who .grid{grid-template-columns:repeat(4,1fr)}}
+.who .cell{background:var(--alabaster);padding:2.4rem 2rem 2.6rem}
+.who .cell h3{margin-bottom:.9rem;font-size:1.5rem}
+.who .cell p{font-size:.98rem;color:#4b4339;margin:0}
+.who .cell .ic{width:40px;height:40px;color:var(--gold-deep);margin-bottom:1.6rem}
+
+/* process */
+.process{background:var(--ivory)}
+.steps{list-style:none;margin:3.5rem 0 0;padding:0;display:grid;gap:2.2rem;counter-reset:st;position:relative}
+@media(min-width:800px){.steps{grid-template-columns:repeat(4,1fr);gap:2rem}.steps::before{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--line)}}
+.steps li{position:relative;padding-top:2.2rem}
+.steps li::before{counter-increment:st;content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--ivory);border:1px solid var(--gold-deep)}
+.steps li:first-child::before{background:var(--gold-deep)}
+.steps .k{font-family:var(--serif);color:var(--gold-deep);font-size:1rem;display:block;margin-bottom:.6rem}
+.steps h3{margin-bottom:.5rem}
+.steps p{margin:0;color:#4b4339;font-size:.98rem}
+
+/* why (dark) */
+.why{position:relative;overflow:hidden}
+.why .lion{position:absolute;left:-12%;bottom:-12%;width:min(56vw,700px);opacity:.06;pointer-events:none}
+.why .wrap{position:relative}
+.why h2{max-width:12ch}
+.pillars{list-style:none;margin:0;padding:0}
+.pillars li{border-top:1px solid var(--line-dark);padding:1.9rem 0}
+.pillars li:last-child{border-bottom:1px solid var(--line-dark)}
+.pillars h3{color:var(--gold);margin-bottom:.45rem}
+.pillars p{margin:0;max-width:36rem;font-size:1rem}
+.not{margin-top:5rem;padding-top:3rem;border-top:1px solid var(--line-dark);display:grid;gap:2rem}
+@media(min-width:900px){.not{grid-template-columns:5fr 6fr;gap:6rem}}
+.not h3{font-size:2rem;font-weight:300}
+.not ul{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.not ul li{display:grid;grid-template-columns:auto 1fr;gap:1rem;font-size:1rem;color:rgba(244,239,230,.8)}
+.not ul li::before{content:"—";color:var(--gold)}
+
+/* areas */
+.areas{background:var(--alabaster)}
+.areas h2{max-width:14ch}
+.zones{list-style:none;margin:3rem 0 0;padding:0;display:grid;gap:2.5rem}
+@media(min-width:700px){.zones{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.zones h3{font-size:1.15rem;letter-spacing:.14em;text-transform:uppercase;font-family:var(--sans);font-weight:500;color:var(--gold-deep);border-bottom:1px solid var(--line);padding-bottom:.9rem;margin-bottom:1rem}
+.zones p{margin:0;font-family:var(--serif);font-size:1.45rem;line-height:1.5;color:var(--ink)}
+.areas .note{margin-top:3rem;color:var(--stone);max-width:40rem;font-size:.98rem}
+
+/* faq */
+.faq{background:var(--ivory)}
+.faq .two{-webkit-box-align:start;-ms-flex-align:start;align-items:start}
+.faq h2{max-width:12ch}
+.qa{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.qa li{border-bottom:1px solid var(--line)}
+.qa button{width:100%;text-align:left;display:grid;grid-template-columns:1fr auto;gap:1.5rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:1.4rem 0;font-family:var(--serif);font-size:1.35rem;font-weight:500;line-height:1.3}
+.qa .pm{width:30px;height:30px;position:relative}
+.qa .pm::before,.qa .pm::after{content:"";position:absolute;background:var(--gold-deep);left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transition:-webkit-transform .3s var(--ease);transition:transform .3s var(--ease)}
+.qa .pm::before{width:14px;height:1px}.qa .pm::after{width:1px;height:14px}
+.qa li.open .pm::after{-webkit-transform:translate(-50%,-50%) rotate(90deg);transform:translate(-50%,-50%) rotate(90deg)}
+.qa .panel{display:grid;grid-template-rows:0fr;-webkit-transition:grid-template-rows .4s var(--ease);transition:grid-template-rows .4s var(--ease)}
+.qa li.open .panel{grid-template-rows:1fr}
+.qa .panel>div{overflow:hidden}
+.qa .panel p{padding:0 3rem 1.6rem 0;margin:0;color:#4b4339;font-size:1rem}
+
+/* cta + contact */
+.cta-band{background:var(--onyx);color:var(--ivory);text-align:center;padding:7rem 0}
+.cta-band h2{font-size:clamp(2.4rem,5.5vw,4.6rem);font-weight:300;max-width:18ch;margin:0 auto 1.2rem}
+.cta-band h2 em{font-style:italic;font-weight:400;color:var(--gold)}
+.cta-band p{max-width:34rem;margin:0 auto 2.6rem;color:rgba(244,239,230,.72)}
+.cta-band .row{display:-webkit-box;display:-ms-flexbox;display:flex;gap:1rem;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-ms-flex-wrap:wrap;flex-wrap:wrap}
+
+.contact{background:var(--alabaster)}
+.contact h2{max-width:12ch}
+.channels{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;gap:1.3rem;font-size:1.05rem}
+.channels li{display:grid;grid-template-columns:44px 1fr;gap:1rem;-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+.channels .ic{width:44px;height:44px;border:1px solid var(--line);border-radius:50%;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;color:var(--gold-deep)}
+.channels .ic svg{width:18px;height:18px}
+.channels small{display:block;color:var(--stone);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
+.channels a:hover{color:var(--gold-deep)}
+.hours{margin-top:2.4rem;padding-top:2rem;border-top:1px solid var(--line);color:var(--stone);font-size:.95rem}
+.form{background:#fff;border:1px solid var(--line);padding:2rem 1.6rem;position:relative}
+.form::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--gold)}
+@media(min-width:600px){.form{padding:2.8rem}}
+.form h3{margin-bottom:.4rem}
+.form .hint{color:var(--stone);font-size:.95rem;margin-bottom:1.8rem}
+.field{display:grid;gap:.45rem;margin-bottom:1.25rem}
+.field label{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--stone)}
+.field input,.field select,.field textarea{font:inherit;font-weight:400;font-size:1rem;padding:.85rem .95rem;border:1px solid var(--line);border-radius:2px;background:var(--alabaster);color:var(--ink);width:100%;-webkit-appearance:none;-moz-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%238a8175' stroke-width='1.5'/></svg>");background-repeat:no-repeat;background-position:right .95rem center;padding-right:2.4rem}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--gold);outline-offset:0;border-color:transparent}
+.row2{display:grid;gap:1rem}
+@media(min-width:600px){.row2{grid-template-columns:1fr 1fr}}
+.form .btn{width:100%;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;margin-top:.4rem}
+.form small{display:block;margin-top:1rem;color:var(--stone);font-size:.82rem;text-align:center}
+
+/* footer */
+footer{background:var(--onyx);color:var(--ivory);padding:4.5rem 0 2.2rem}
+footer .top{display:grid;gap:2.5rem;padding-bottom:2.6rem;border-bottom:1px solid var(--line-dark)}
+@media(min-width:800px){footer .top{grid-template-columns:1.4fr 1fr 1fr}}
+footer .brand img{height:64px}
+footer .tag{margin:1.4rem 0 0;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--gold)}
+footer h4{font-family:var(--sans);font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.1rem}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:.6rem;font-size:.95rem}
+footer ul a{opacity:.8}footer ul a:hover{opacity:1;color:var(--gold)}
+footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;gap:1rem;-ms-flex-wrap:wrap;flex-wrap:wrap;padding-top:1.6rem;font-size:.82rem;color:rgba(244,239,230,.5)}
+
+.wa-float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:40;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-shadow:0 8px 24px rgba(0,0,0,.28);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.wa-float svg{width:28px;height:28px}
+@media(min-width:960px){.wa-float{display:none}}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Royston Realty — home">
+      <img src="assets/lion-cream.png" alt="" width="42" height="42">
+      <span class="word">Royston<small>Realty</small></span>
+    </a>
+    <nav aria-label="Primary">
+      <ul id="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#clients">Who we serve</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#areas">Bengaluru</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-gold" href="https://wa.me/918123125757" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+      WhatsApp us
+    </a>
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" aria-label="Introduction">
+  <img class="lion" src="assets/lion-cream.png" alt="" aria-hidden="true">
+  <div class="wrap grid">
+    <div class="reveal">
+      <p class="over">Premium property advisory, Bengaluru</p>
+      <h1>Property, handled <strong>the way it should be.</strong></h1>
+      <p class="lede">A single accountable team for buying, selling, leasing, land, management, build-outs, interiors and legal — with every fee and every step put in writing before you commit.</p>
+      <div class="cta">
+        <a class="btn btn-gold" href="https://wa.me/918123125757?text=Hello%20Royston%20Realty%2C%20I%27d%20like%20to%20discuss%20a%20property%20requirement." target="_blank" rel="noopener">Start a private conversation</a>
+        <a class="btn btn-light" href="#services">Explore our services</a>
+      </div>
+    </div>
+    <aside class="side" aria-label="At a glance">
+      <dl>
+        <div><dt>Premium only</dt><dd>Select, high-value mandates. Nothing else.</dd></div>
+        <div><dt>Seven services</dt><dd>One advisor. One point of accountability.</dd></div>
+        <div><dt>In writing</dt><dd>Fees, timelines and documents disclosed up front.</dd></div>
+      </dl>
+    </aside>
+  </div>
+  <span class="scroll-cue" aria-hidden="true"></span>
+</section>
+
+<div class="band" aria-hidden="true">
+  <span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span>
+</div>
+
+<section class="manifesto" id="about">
+  <div class="wrap two">
+    <div>
+      <span class="kicker">About Royston Realty</span>
+      <h2>Most property firms chase volume. <em>We chose the opposite.</em></h2>
+      <ul class="marks">
+        <li><b>7</b><span>services under one roof</span></li>
+        <li><b>1</b><span>advisor accountable to you</span></li>
+        <li><b>0</b><span>undisclosed fees, ever</span></li>
+      </ul>
+    </div>
+    <div class="body">
+      <p class="lede">Royston Realty is a premium-only property advisory in Bengaluru. We take on a deliberately small number of engagements at a time — so that the people working on your brief actually know your brief.</p>
+      <p>We came to property from software, and we brought its habits with us: decisions grounded in real transaction data, timelines you can see, documentation at every stage, and a strong dislike of surprises. Where the industry runs on phone calls and hearsay, we run on evidence.</p>
+      <p>The result is a firm that behaves less like a broker and more like a family office for your property — advising on what to buy, sell or lease, then staying to manage, build, finish and protect it long after the paperwork is done.</p>
+      <figure class="frame">
+        <div class="in"><img src="assets/lion-gold.png" alt="The Royston Realty winged lion"></div>
+        <figcaption>Every brief gets our full attention, or we do not take it on.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="head">
+      <div><span class="kicker">Our services</span><h2>From the first search to the final signature — and everything after.</h2></div>
+      <p>Seven disciplines, one team. Engage us for a single need or the entire lifecycle of a property; either way you deal with one advisor who owns the outcome. Select a service to see what's included.</p>
+    </div>
+    <ul class="idx" id="svc">
+      <li class="open">
+        <button aria-expanded="true"><span class="n">I</span><h3>Sales &amp; Acquisitions</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>Buying or selling premium residential and commercial property is a decision measured in crores and years. We bring curated inventory — including opportunities that never reach the open market — and valuations built from actual registered transactions rather than asking prices. From the first viewing to the registrar's office, we negotiate and manage the entire transaction on your behalf.</p>
+          <ul><li>Curated and off-market opportunities matched to your brief</li><li>Valuation grounded in real, recent transaction data</li><li>Independent due diligence before you commit</li><li>Negotiation, agreements and registration, handled end to end</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">II</span><h3>Leasing &amp; Rentals</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>For owners, we find and vet tenants worth having. For companies and families, we find spaces worth staying in. Our leasing practice spans corporate offices, retail and commercial floors, and premium homes — with documentation that protects both sides and renewals managed before they become urgent.</p>
+          <ul><li>Office, retail and commercial space for companies and founders</li><li>Premium apartments, villas and independent homes</li><li>Tenant verification, background checks and references</li><li>Lease agreements, registration and renewals</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">III</span><h3>Land</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>Land carries the highest upside and the highest risk of any asset class. We do the groundwork first — title chain, approvals, encumbrances, zoning and physical boundaries — so that what you acquire is exactly what you believe you are acquiring. For sellers, we position parcels to the right buyers and developers at a fair, defensible value.</p>
+          <ul><li>Title, approval, encumbrance and boundary verification</li><li>Fair valuation and honest assessment of development potential</li><li>Access to landowners, developers and institutional buyers</li><li>Documentation, conversion and registration, handled</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">IV</span><h3>Property Management</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>Ownership should not require your attention every week. Whether you live across the city or across the world, we act as your presence on the ground: collecting rent, coordinating tenants, handling maintenance and inspections, and sending you a clear monthly report with every rupee accounted for.</p>
+          <ul><li>Rent collection, deposits and tenant coordination</li><li>Scheduled inspections and preventive maintenance</li><li>Vendor management with vetted, priced contractors</li><li>Monthly statements and photo-documented reports</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">V</span><h3>Civil Works</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>Construction and renovation, managed to specification and to schedule. We work with a small bench of contractors we have used before, hold them to written scopes and milestones, and document progress at every stage — so that quality is verified, not assumed.</p>
+          <ul><li>Structural, civil and renovation work with vetted contractors</li><li>Written scope, milestones and cost control</li><li>Quality checks and progress documentation at each stage</li><li>Approvals, compliance and handover</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">VI</span><h3>Interior Design</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>A premium property deserves a finish that matches it. Our design practice takes homes and offices from concept to completion — space planning, materials, lighting, furniture and fit-out — coordinated with our civil team so that design intent survives execution.</p>
+          <ul><li>Concept, space planning and material palettes</li><li>Turnkey execution for homes and workplaces</li><li>Fit-outs coordinated with our civil works team</li><li>Furniture, lighting and styling to handover</li></ul>
+        </div></div></div>
+      </li>
+      <li>
+        <button aria-expanded="false"><span class="n">VII</span><h3>Legal</h3><span class="pm" aria-hidden="true"></span></button>
+        <div class="panel"><div><div class="body">
+          <p>Property in India is only as good as its paperwork. Our legal practice handles due diligence, title verification and documentation with care and clarity — explaining what each document means and why it matters, in plain language, before you sign anything.</p>
+          <ul><li>Title search, encumbrance certificates and due diligence</li><li>Sale, lease and development agreements</li><li>Registration, stamp duty and statutory compliance</li><li>Khata, tax and succession-related documentation</li></ul>
+        </div></div></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="who" id="clients">
+  <div class="wrap">
+    <span class="kicker">Who we serve</span>
+    <h2>Built for people who value their time as much as their property.</h2>
+    <div class="grid">
+      <div class="cell">
+        <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 20 20 8l14 12M10 17v15h20V17M17 32V23h6v9"/></svg>
+        <h3>Families &amp; individuals</h3>
+        <p>Buying a first premium home, upgrading to a villa, or placing family wealth in property with a long horizon. You want honest advice and a firm that stays after the keys change hands.</p>
+      </div>
+      <div class="cell">
+        <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><circle cx="20" cy="20" r="13"/><path d="M7 20h26M20 7c-4 4-4 22 0 26M20 7c4 4 4 22 0 26"/></svg>
+        <h3>Non-resident owners</h3>
+        <p>You own property in Bengaluru but live elsewhere. You need someone on the ground who treats your asset like their own — and reports to you with the clarity you would expect from a bank.</p>
+      </div>
+      <div class="cell">
+        <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M8 33V11h14v22M22 17h10v16M8 33h24M12 15h2M12 19h2M12 23h2M18 15h2M18 19h2M18 23h2M26 21h2M26 25h2"/></svg>
+        <h3>Companies &amp; founders</h3>
+        <p>Offices, retail and commercial floors for growing teams. You want a space that works, terms that protect you, and a fit-out delivered on the date you were promised.</p>
+      </div>
+      <div class="cell">
+        <svg class="ic" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M6 30 34 30M8 30 12 14l8 8 6-12 6 20"/></svg>
+        <h3>Landowners &amp; developers</h3>
+        <p>Acquiring, aggregating or exiting land parcels. You need the title work done before the conversation begins, and access to counterparties who can actually close.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <span class="kicker">How we work</span>
+    <h2>Four steps. No surprises at the table.</h2>
+    <ol class="steps">
+      <li><span class="k">Step one</span><h3>Understand</h3><p>A private conversation about your brief, budget and timeline. We tell you plainly whether we are the right fit.</p></li>
+      <li><span class="k">Step two</span><h3>Shortlist</h3><p>Vetted options with the numbers laid out — comparable transactions, costs, risks and our honest view of each.</p></li>
+      <li><span class="k">Step three</span><h3>Close</h3><p>Negotiation, agreements, due diligence and registration, handled by us and documented at every stage.</p></li>
+      <li><span class="k">Step four</span><h3>Stay</h3><p>We remain your point of contact after completion — for management, works, interiors or the next decision.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="why dark" id="why">
+  <img class="lion" src="assets/lion-cream.png" alt="" aria-hidden="true">
+  <div class="wrap">
+    <div class="two">
+      <div>
+        <span class="kicker">Why Royston</span>
+        <h2>Fewer clients. Sharper judgement. Clearer answers.</h2>
+        <p style="margin-top:1.6rem;max-width:30rem">A property advisory should be judged on how it works, not how it talks. These are the commitments we make — and keep — on every engagement.</p>
+      </div>
+      <ul class="pillars">
+        <li><h3>Premium only</h3><p>We take on select, high-value engagements and nothing else. A smaller portfolio means we know every asset we represent, first-hand.</p></li>
+        <li><h3>Built by technologists</h3><p>Our team comes from software. Expect clean data, clear timelines and decisions backed by numbers rather than noise.</p></li>
+        <li><h3>Trust, in writing</h3><p>Every fee, every step and every document is disclosed before you commit. No surprises at the table.</p></li>
+        <li><h3>Discretion, always</h3><p>Your holdings, requirements and conversations stay confidential. We introduce parties only when both sides have agreed.</p></li>
+      </ul>
+    </div>
+    <div class="not">
+      <h3>What we deliberately don't do</h3>
+      <ul>
+        <li>Flood you with listings that don't match your brief</li>
+        <li>Quote a fee, then discover another one at closing</li>
+        <li>Share your details with a counterparty before you've agreed</li>
+        <li>Promise a timeline we can't document</li>
+        <li>Take on a mandate we don't have the time to do properly</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="areas" id="areas">
+  <div class="wrap">
+    <span class="kicker">Where we work</span>
+    <h2>Bengaluru, known street by street.</h2>
+    <ul class="zones">
+      <li><h3>Central &amp; South</h3><p>Sadashivanagar, Indiranagar, Koramangala, Jayanagar, Richmond Town, Cooke Town, JP Nagar</p></li>
+      <li><h3>East</h3><p>Whitefield, Sarjapur Road, Bellandur, Varthur, Marathahalli, Brookefield</p></li>
+      <li><h3>North</h3><p>Hebbal, Yelahanka, Jakkur, Thanisandra, Devanahalli, Airport corridor</p></li>
+    </ul>
+    <p class="note">These are the micro-markets we transact in most and know best. We also take on select mandates elsewhere in Bengaluru and across Karnataka when the brief calls for it.</p>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="wrap two">
+    <div>
+      <span class="kicker">Questions, answered</span>
+      <h2>Before we talk.</h2>
+      <p style="margin-top:1.4rem;color:#4b4339;max-width:26rem">The things people usually want to know before the first conversation. Anything else, ask us directly.</p>
+    </div>
+    <ul class="qa" id="faqlist">
+      <li><button aria-expanded="false">What does "premium only" mean in practice?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>We work on a limited number of high-value residential, commercial and land mandates at a time, so every client gets senior attention. Fit is decided in the first conversation, not by a price threshold on a website — tell us about your requirement and we'll tell you honestly whether we are the right firm for it.</p></div></div></li>
+      <li><button aria-expanded="false">How are your fees structured?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>Fees depend on the service and the scope, and every one of them is put in writing before you commit — the amount, when it is payable and what it covers. There are no fees that appear at closing.</p></div></div></li>
+      <li><button aria-expanded="false">I live outside India. Can you manage my property?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>Yes. A large part of our management practice is for non-resident owners. We handle tenants, rent, maintenance and inspections, and you receive a monthly statement with photographs and accounts. We can also coordinate with your bank and tax advisor where required.</p></div></div></li>
+      <li><button aria-expanded="false">Do you handle registration and legal work yourselves?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>Our legal practice handles due diligence, agreements, registration and compliance as part of the engagement, so you are not coordinating between a broker, a lawyer and a registrar. Where a specialist opinion is needed, we bring one in and tell you why.</p></div></div></li>
+      <li><button aria-expanded="false">Can I engage you for just one service?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>Absolutely. Many clients start with a single need — a lease, a valuation, an interior fit-out — and expand from there. Whether it is one service or all seven, you have one advisor accountable for the outcome.</p></div></div></li>
+      <li><button aria-expanded="false">How quickly do you respond?<span class="pm" aria-hidden="true"></span></button><div class="panel"><div><p>WhatsApp and email are answered the same working day, usually within a few hours. First conversations are private, without obligation, and can be held in person, by call or on video — whichever you prefer.</p></div></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-band" aria-label="Call to action">
+  <div class="wrap">
+    <h2>Your property deserves <em>judgement, not just a listing.</em></h2>
+    <p>Tell us what you are trying to achieve. If we are the right firm for it, we will say so — and if we are not, we will tell you that too.</p>
+    <div class="row">
+      <a class="btn btn-gold" href="https://wa.me/918123125757?text=Hello%20Royston%20Realty%2C%20I%27d%20like%20to%20discuss%20a%20property%20requirement." target="_blank" rel="noopener">Talk to us on WhatsApp</a>
+      <a class="btn btn-light" href="#contact">Send an enquiry</a>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap two">
+    <div>
+      <span class="kicker">Get in touch</span>
+      <h2>Let's talk about your next space.</h2>
+      <p class="lede" style="margin-top:1.4rem;color:#4b4339;max-width:28rem">Every first conversation is private and without obligation.</p>
+      <ul class="channels">
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>WhatsApp &amp; phone</small><a href="https://wa.me/918123125757" target="_blank" rel="noopener">+91 81231 25757</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:support@roystonrealty.in">support@roystonrealty.in</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><div><small>Instagram</small><a href="https://www.instagram.com/royston.realty" target="_blank" rel="noopener">@royston.realty</a></div></li>
+      </ul>
+      <p class="hours">Bengaluru, Karnataka · Monday to Saturday, 9:30 am – 7:00 pm IST. Meetings by appointment, at a location of your choosing.</p>
+    </div>
+    <form class="form" id="enq" onsubmit="return sendWA(event)">
+      <h3>Tell us about your requirement</h3>
+      <p class="hint">This opens a WhatsApp chat with your details filled in. Nothing is stored on this website.</p>
+      <div class="row2">
+        <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="field"><label for="f-phone">Phone (optional)</label><input id="f-phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="f-service">Service</label>
+          <select id="f-service" name="service"><option>Sales &amp; Acquisitions</option><option>Leasing &amp; Rentals</option><option>Land</option><option>Property Management</option><option>Civil Works</option><option>Interior Design</option><option>Legal</option><option>Not sure yet</option></select>
+        </div>
+        <div class="field"><label for="f-type">I am</label>
+          <select id="f-type" name="type"><option>Buying</option><option>Selling</option><option>Leasing as an owner</option><option>Leasing as an occupier</option><option>An owner needing management</option><option>Planning works or interiors</option></select>
+        </div>
+      </div>
+      <div class="field"><label for="f-msg">Your brief</label><textarea id="f-msg" name="message" placeholder="Location, budget, timeline — whatever you have so far."></textarea></div>
+      <button class="btn btn-ink" type="submit">Send on WhatsApp</button>
+      <small>Prefer email? Write to support@roystonrealty.in</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <a class="brand" href="#top"><img src="assets/lion-gold.png" alt="Royston Realty" width="64" height="64"><span class="word">Royston<small>Realty</small></span></a>
+        <p class="tag">Transforming property visions into reality.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="#services">Sales &amp; Acquisitions</a></li><li><a href="#services">Leasing &amp; Rentals</a></li><li><a href="#services">Land</a></li><li><a href="#services">Property Management</a></li><li><a href="#services">Civil Works</a></li><li><a href="#services">Interior Design</a></li><li><a href="#services">Legal</a></li></ul>
+      </div>
+      <div>
+        <h4>Firm</h4>
+        <ul><li><a href="#about">About</a></li><li><a href="#clients">Who we serve</a></li><li><a href="#process">How we work</a></li><li><a href="#areas">Where we work</a></li><li><a href="#faq">FAQ</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2026 Royston Realty. All rights reserved.</span>
+      <span>Premium property advisory · Bengaluru</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/918123125757" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.3c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.3 8.3 0 1 1 12 20.3z"/></svg>
+</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),toggle=nav.querySelector('.nav-toggle');
+  function onScroll(){if(window.scrollY>40){nav.classList.add('solid')}else{nav.classList.remove('solid')}}
+  onScroll();window.addEventListener('scroll',onScroll,{passive:true});
+  toggle.addEventListener('click',function(){var o=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',o);toggle.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  nav.querySelectorAll('#menu a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');toggle.setAttribute('aria-expanded','false')})});
+  function accordion(id,single){
+    var list=document.getElementById(id);
+    list.querySelectorAll(':scope > li > button').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var li=btn.parentNode,open=li.classList.contains('open');
+        if(single){list.querySelectorAll('li.open').forEach(function(o){o.classList.remove('open');o.querySelector('button').setAttribute('aria-expanded','false')})}
+        if(!open){li.classList.add('open');btn.setAttribute('aria-expanded','true')}
+        else if(!single){li.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+      });
+    });
+  }
+  accordion('svc',true);accordion('faqlist',false);
+})();
+function sendWA(e){
+  e.preventDefault();var f=e.target;
+  var msg="Hello Royston Realty,\n\nName: "+f.name.value+(f.phone.value?"\nPhone: "+f.phone.value:"")+"\nService: "+f.service.value+"\nI am: "+f.type.value+(f.message.value?"\n\nBrief: "+f.message.value:"");
+  window.open("https://wa.me/918123125757?text="+encodeURIComponent(msg),"_blank","noopener");return false;
+}
+</script>
+</body>
+</html>
