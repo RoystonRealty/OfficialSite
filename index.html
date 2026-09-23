@@ -122,8 +122,12 @@ p{margin:0 0 1.15em}
 
 /* ---------- band ---------- */
 .band{background:var(--gold);color:var(--onyx);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;padding:.9rem 0;overflow:hidden;white-space:nowrap}
+.band .track{display:-webkit-inline-box;display:-ms-inline-flexbox;display:inline-flex;-webkit-animation:marquee 48s linear infinite;animation:marquee 48s linear infinite;will-change:transform}
 .band span{display:inline-block;padding:0 1.6rem}
 .band span::after{content:"◆";font-size:.5rem;margin-left:3.2rem;vertical-align:middle;opacity:.55}
+@-webkit-keyframes marquee{from{-webkit-transform:translateX(0);transform:translateX(0)}to{-webkit-transform:translateX(-50%);transform:translateX(-50%)}}
+@keyframes marquee{from{-webkit-transform:translateX(0);transform:translateX(0)}to{-webkit-transform:translateX(-50%);transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.band .track{-webkit-animation:none;animation:none}}
 
 /* ---------- sections ---------- */
 section{padding:6rem 0}
@@ -144,7 +148,7 @@ section{padding:6rem 0}
 @media(max-width:600px){.frame .in{aspect-ratio:1/1}.frame img{width:50%;-webkit-transform:translateY(-12%);transform:translateY(-12%)}}
 @media(min-width:900px){.frame{margin-top:0}}
 .marks{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;border-top:1px solid var(--line);padding-top:2rem}
-.marks b{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:400;color:var(--gold-deep);line-height:1}
+.marks b{display:block;font-family:var(--serif);font-size:2.4rem;font-weight:400;color:var(--gold-deep);line-height:1;font-variant-numeric:lining-nums;-webkit-font-feature-settings:"lnum";font-feature-settings:"lnum"}
 .marks span{font-size:.86rem;color:var(--stone);display:block;margin-top:.5rem;line-height:1.4}
 
 /* services index */
@@ -284,6 +288,30 @@ footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-
 .wa-float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:40;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;-webkit-box-shadow:0 8px 24px rgba(0,0,0,.28);box-shadow:0 8px 24px rgba(0,0,0,.28)}
 .wa-float svg{width:28px;height:28px}
 @media(min-width:960px){.wa-float{display:none}}
+
+/* ---------- quiet motion ---------- */
+.hero::before{-webkit-animation:breathe 9s ease-in-out infinite alternate;animation:breathe 9s ease-in-out infinite alternate}
+@-webkit-keyframes breathe{from{opacity:.75}to{opacity:1}}
+@keyframes breathe{from{opacity:.75}to{opacity:1}}
+.hero .lion{-webkit-transition:-webkit-transform .1s linear;transition:transform .1s linear}
+.fx{opacity:0;-webkit-transform:translateY(14px);transform:translateY(14px);-webkit-transition:opacity .9s var(--ease),-webkit-transform .9s var(--ease);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.fx.in{opacity:1;-webkit-transform:none;transform:none}
+.fx-d1{-webkit-transition-delay:.12s;transition-delay:.12s}.fx-d2{-webkit-transition-delay:.24s;transition-delay:.24s}.fx-d3{-webkit-transition-delay:.36s;transition-delay:.36s}
+.idx>li>button{position:relative}
+.idx>li>button::after{content:"";position:absolute;left:0;bottom:-1px;height:1px;width:0;background:var(--gold-deep);-webkit-transition:width .5s var(--ease);transition:width .5s var(--ease)}
+.idx>li>button:hover::after,.idx>li.open>button::after{width:100%}
+.idx>li>button h3{-webkit-transition:color .25s,-webkit-transform .35s var(--ease);transition:color .25s,transform .35s var(--ease)}
+.idx>li>button:hover h3{-webkit-transform:translateX(6px);transform:translateX(6px)}
+.btn-gold{position:relative;overflow:hidden}
+.btn-gold::after{content:"";position:absolute;top:0;left:-70%;width:40%;height:100%;background:-webkit-gradient(linear,left top,right top,from(rgba(255,255,255,0)),color-stop(rgba(255,255,255,.45)),to(rgba(255,255,255,0)));background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(255,255,255,0));-webkit-transform:skewX(-20deg);transform:skewX(-20deg);-webkit-transition:left .6s var(--ease);transition:left .6s var(--ease)}
+.btn-gold:hover::after{left:130%}
+.who .cell{-webkit-transition:background .35s;transition:background .35s}
+.who .cell:hover{background:#fff}
+.who .cell .ic{-webkit-transition:-webkit-transform .4s var(--ease);transition:transform .4s var(--ease)}
+.who .cell:hover .ic{-webkit-transform:translateY(-3px);transform:translateY(-3px)}
+.nav.solid .brand img{-webkit-transform:scale(.9);transform:scale(.9)}
+.brand img{-webkit-transition:-webkit-transform .3s var(--ease);transition:transform .3s var(--ease)}
+@media(prefers-reduced-motion:reduce){.fx{opacity:1;-webkit-transform:none;transform:none}.hero::before{-webkit-animation:none;animation:none}.btn-gold::after{display:none}}
 </style>
 </head>
 <body>
@@ -337,9 +365,7 @@ footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-
   <span class="scroll-cue" aria-hidden="true"></span>
 </section>
 
-<div class="band" aria-hidden="true">
-  <span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span>
-</div>
+<div class="band" aria-hidden="true"><div class="track"><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span><span>Sales</span><span>Leasing &amp; Rentals</span><span>Land</span><span>Property Management</span><span>Civil Works</span><span>Interior Design</span><span>Legal</span></div></div>
 
 <section class="manifesto" id="about">
   <div class="wrap two">
@@ -544,7 +570,7 @@ footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-
       <h2>Let's talk about your next space.</h2>
       <p class="lede" style="margin-top:1.4rem;color:#4b4339;max-width:28rem">Every first conversation is private and without obligation.</p>
       <ul class="channels">
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>WhatsApp &amp; phone</small><a href="https://wa.me/918123125757" target="_blank" rel="noopener">+91 81231 25757</a></div></li>
+        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span><div><small>Phone &amp; WhatsApp</small><a href="tel:+918123125757">+91 81231 25757</a> <span style="color:var(--stone)">·</span> <a href="https://wa.me/918123125757" target="_blank" rel="noopener">WhatsApp</a></div></li>
         <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><small>Email</small><a href="mailto:support@roystonrealty.in">support@roystonrealty.in</a></div></li>
         <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span><div><small>Instagram</small><a href="https://www.instagram.com/royston.realty" target="_blank" rel="noopener">@royston.realty</a></div></li>
       </ul>
@@ -562,7 +588,7 @@ footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-
           <select id="f-service" name="service"><option>Sales &amp; Acquisitions</option><option>Leasing &amp; Rentals</option><option>Land</option><option>Property Management</option><option>Civil Works</option><option>Interior Design</option><option>Legal</option><option>Not sure yet</option></select>
         </div>
         <div class="field"><label for="f-type">I am</label>
-          <select id="f-type" name="type"><option>Buying</option><option>Selling</option><option>Leasing as an owner</option><option>Leasing as an occupier</option><option>An owner needing management</option><option>Planning works or interiors</option></select>
+          <select id="f-type" name="type"><option>Looking to buy</option><option>Looking to sell</option><option>Looking to rent a home</option><option>Looking to rent an office or commercial space</option><option>An owner wanting to rent out or lease my property</option><option>An owner needing property management</option><option>Planning construction or interiors</option><option>Something else</option></select>
         </div>
       </div>
       <div class="field"><label for="f-msg">Your brief</label><textarea id="f-msg" name="message" placeholder="Location, budget, timeline — whatever you have so far."></textarea></div>
@@ -619,6 +645,22 @@ footer .bottom{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-
     });
   }
   accordion('svc',true);accordion('faqlist',false);
+  // quiet scroll reveal
+  var fx=[];
+  document.querySelectorAll('section:not(.hero) .kicker, section:not(.hero) h2, .manifesto .body, .manifesto .marks, .frame, .idx>li, .who .cell, .steps li, .pillars li, .not, .zones li, .qa li, .cta-band p, .cta-band .row, .channels, .hours, .form').forEach(function(el,i){el.classList.add('fx');fx.push(el)});
+  // stagger siblings inside grids
+  document.querySelectorAll('.who .grid, .steps, .zones, .marks').forEach(function(g){Array.prototype.forEach.call(g.children,function(c,i){if(i%4===1)c.classList.add('fx-d1');if(i%4===2)c.classList.add('fx-d2');if(i%4===3)c.classList.add('fx-d3')})});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    fx.forEach(function(el){io.observe(el)});
+  }else{fx.forEach(function(el){el.classList.add('in')})}
+  // hero parallax
+  var lion=document.querySelector('.hero .lion'),reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(lion&&!reduce){
+    var ticking=false;
+    function par(){var y=window.scrollY;if(y<window.innerHeight){lion.style.transform='translateY(calc(-48% + '+(y*0.18)+'px))'}ticking=false}
+    window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(par);ticking=true}},{passive:true});
+  }
 })();
 function sendWA(e){
   e.preventDefault();var f=e.target;
