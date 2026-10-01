@@ -1,27 +1,26 @@
 # Royston Realty — website
 
-Static site for https://roystonrealty.in. No build step, no backend, no cost to host.
+Static multi-page site for https://roystonrealty.in, hosted free on GitHub Pages. No backend, no paid hosting.
 
-Files
-- index.html — the whole site (HTML, CSS and a little JS in one file)
-- assets/ — logo variants, favicons, WhatsApp QR
-- CNAME — tells GitHub Pages which domain to serve
+## Pages
+- `index.html` — Home
+- `services/index.html` — All services, plus one page per service (sales, leasing, land, management, civil-works, interiors, legal)
+- `about.html`, `approach.html`, `neighbourhoods.html`, `faq.html`, `contact.html`
+- `404.html` — shown by GitHub Pages for any missing address
 
-Deploy on GitHub Pages (free)
-1. Create a public GitHub repository, e.g. `roystonrealty`.
-2. Upload every file in this folder to the repository root (keep the assets/ folder).
-3. Repository → Settings → Pages → Source: "Deploy from a branch" → Branch: main, folder: / (root) → Save.
-4. Same page → Custom domain: roystonrealty.in → Save. Tick "Enforce HTTPS" once the DNS check passes (can take up to an hour).
+## Updating your existing GitHub Pages site
+1. Open your existing repository on GitHub.
+2. Delete the old `index.html` and old `sitemap.xml` (keep `CNAME`).
+3. Upload everything in this folder to the repository root, keeping the folder structure (`assets/`, `services/`, `_tools/`). The easiest way: "Add file → Upload files" and drag the whole unzipped folder contents in.
+4. Commit to `main`. The new site is live within a minute or two. Your domain and DNS settings stay as they are.
 
-GoDaddy DNS (My Products → roystonrealty.in → DNS)
-- Delete any existing A record for "@" and any "Domain Connect"/parking records.
-- Add 4 A records, Name @ , TTL 600:
-  185.199.108.153
-  185.199.109.153
-  185.199.110.153
-  185.199.111.153
-- Add a CNAME record: Name www → Value <your-github-username>.github.io
+## Editing content
+Every page is plain HTML you can edit directly. The header and footer are repeated on every page, so for site-wide changes (phone number, email, Instagram, a new service) it's easier to edit `_tools/build.py` and run:
 
-Editing later
-- Copy, phone, email: edit index.html directly. Every change pushed to main goes live within a minute or two.
-- Photos: drop images into assets/ and reference them from index.html.
+    python3 _tools/build.py
+
+That regenerates all pages. The `_tools` folder is not published by GitHub Pages.
+Colours and fonts live in `assets/css/site.css` (the `:root` block at the top).
+
+## Adding photos later
+Put images in `assets/` (compress them to under ~300 KB each) and reference them from the HTML. Good first candidates: a property photo inside the green panel on the home page, and one image at the top of each service page.
