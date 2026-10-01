@@ -1,4 +1,6 @@
-import os, json, html
+import os, json, html, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from content import ZONES, DEVANAHALLI, ROUTER, GUIDES
 
 OUT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DOMAIN = "https://roystonrealty.in"
@@ -89,9 +91,9 @@ SERVICES = [
 ]
 SV = {s["slug"]: s for s in SERVICES}
 
-NAV = [("services/index.html", "Services", "services"), ("approach.html", "Approach", "approach"),
-       ("neighbourhoods.html", "Neighbourhoods", "neighbourhoods"), ("about.html", "About", "about"),
-       ("faq.html", "FAQ", "faq"), ("contact.html", "Contact", "contact")]
+NAV = [("services/index.html", "Services", "services"), ("listings.html", "Listings", "listings"),
+       ("neighbourhoods.html", "Neighbourhoods", "neighbourhoods"), ("guides/index.html", "Guides", "guides"),
+       ("about.html", "About", "about"), ("contact.html", "Contact", "contact")]
 
 AUDIENCE = [
     ("Families & individuals", "Buying a first premium home, upgrading to a villa, or placing family wealth in property with a long horizon. You want honest advice and a firm that stays after the keys change hands."),
@@ -218,6 +220,8 @@ def foot(p):
           <li><a href="{p}about.html">About</a></li>
           <li><a href="{p}approach.html">Approach</a></li>
           <li><a href="{p}neighbourhoods.html">Neighbourhoods</a></li>
+          <li><a href="{p}listings.html">Listings</a></li>
+          <li><a href="{p}guides/index.html">Guides</a></li>
           <li><a href="{p}faq.html">FAQ</a></li>
           <li><a href="{p}contact.html">Contact</a></li>
         </ul>
@@ -299,25 +303,101 @@ LD = {
 }
 
 
+ZCOL = {"c": "#1F3A33", "e": "#A3854A", "n": "#5E7F73"}
+# label placement overrides: (dx, dy, anchor)
+LBL = {"Sadashivanagar": (-10, 4, "end"), "Jayanagar": (-10, 4, "end"), "JP Nagar": (-10, 4, "end"),
+       "Yelahanka": (-10, 4, "end"), "Richmond Town": (-10, 14, "end"), "Cooke Town": (-8, -10, "end"),
+       "Koramangala": (10, 12, "start"), "Hebbal": (-10, 4, "end"), "Varthur": (10, 12, "start"),
+       "Brookefield": (-6, -12, "middle"), "Whitefield": (10, -2, "start")}
+
+
+def bengaluru_map():
+    cx, cy, k = 215, 440, 20
+    out = [f'<svg class="map" viewBox="0 0 640 660" role="img" aria-labelledby="map-t map-d" xmlns="http://www.w3.org/2000/svg">',
+           '<title id="map-t">Where Royston Realty works in Bengaluru</title>',
+           '<desc id="map-d">A schematic map of the micro-markets we cover across Central and South, East and North Bengaluru, with Devanahalli and the airport corridor to the north. Not to scale.</desc>',
+           f'<ellipse cx="{cx+60}" cy="{cy+20}" rx="184" ry="190" fill="none" stroke="#C9C6BC" stroke-width="1.2" stroke-dasharray="4 5"/>',
+           f'<text x="{cx+60}" y="{cy+232}" text-anchor="middle" class="map-note">Outer Ring Road (approximate)</text>',
+           f'<circle cx="{cx}" cy="{cy}" r="3" fill="#1A1F1D"/><text x="{cx+8}" y="{cy+16}" class="map-note">MG Road</text>',
+           # airport corridor arrow
+           f'<path d="M{cx+60} 82 L{cx+60} 26" stroke="#5E7F73" stroke-width="1.2" fill="none"/><path d="M{cx+54} 34 L{cx+60} 24 L{cx+66} 34" stroke="#5E7F73" stroke-width="1.2" fill="none"/>',
+           f'<text x="{cx+74}" y="38" class="map-lbl">Devanahalli &amp; airport</text>']
+    for zname, key, places in ZONES:
+        for name, x, y, _ in places:
+            px, py = cx + x * k, cy - y * k
+            dx, dy, anc = LBL.get(name, (10, 4, "start"))
+            out.append(f'<circle cx="{px:.0f}" cy="{py:.0f}" r="6" fill="{ZCOL[key]}"/>'
+                       f'<text x="{px+dx:.0f}" y="{py+dy:.0f}" text-anchor="{anc}" class="map-lbl">{name}</text>')
+    out.append('</svg>')
+    return "".join(out)
+
+
+def map_legend():
+    return "".join(f'<li><span style="background:{ZCOL[k]}"></span>{z}</li>' for z, k, _ in ZONES)
+
+
+def router(p):
+    items = "\n".join(f'<li><a href="{p}{href}"><h3>{t}</h3><p>{d}</p>{I_CHEV}</a></li>' for t, d, href in ROUTER)
+    return f"""<section class="router-wrap">
+  <div class="wrap">
+    <h2 class="router-h">What are you looking to do?</h2>
+    <ul class="router">
+{items}
+    </ul>
+  </div>
+</section>
+"""
+
+
+def guide_cards(p, limit=None):
+    gs = GUIDES[:limit] if limit else GUIDES
+    return "\n".join(f'<li><a href="{p}guides/{g["slug"]}.html"><span class="g-aud">{g["audience"]}</span><h3>{g["title"]}</h3><p>{g["summary"]}</p><span class="textlink">Read the guide</span></a></li>' for g in gs)
+
+
+def coverage(p, full=False):
+    return f"""<section class="section{'' if full else ' section--stone'}">
+  <div class="wrap coverage">
+    <div>
+      <h2>Active across {sum(len(z[2]) for z in ZONES)} Bengaluru micro-markets.</h2>
+      <p class="lead">We transact most in these neighbourhoods and know them building by building: which towers rent fastest, which layouts hold their value, which approvals are clean.</p>
+      <ul class="legend">{map_legend()}</ul>
+      {'' if full else f'<p><a class="textlink" href="{p}neighbourhoods.html">See every neighbourhood we cover</a></p>'}
+    </div>
+    <figure class="map-fig">{bengaluru_map()}<figcaption>Schematic, not to scale.</figcaption></figure>
+  </div>
+</section>
+"""
+
+
 def home(p):
     return f"""<section class="hero">
   <div class="wrap">
     <div class="hero-copy">
       <h1>Property, handled the way it should be.</h1>
-      <p class="lead">A premium property advisory in Bengaluru. One accountable team for buying, selling, leasing, land, management, build-outs, interiors and legal, with every fee and every step put in writing before you commit.</p>
+      <p class="lead">A premium property advisory in Bengaluru. One accountable team for renting, buying, selling, land, management, build-outs, interiors and legal, with every fee and every step put in writing before you commit.</p>
       <div class="actions">
         <a class="btn btn--primary" href="{p}contact.html">Start a private conversation</a>
-        <a class="btn btn--ghost" href="{p}services/index.html">View services</a>
+        <a class="btn btn--ghost" href="{p}listings.html">View listings</a>
       </div>
     </div>
     <figure class="hero-seal">
-      <img src="{p}assets/lion-cream.png" alt="The Royston Realty winged lion" width="752" height="760">
-      <figcaption><span>Premium mandates only</span><span>Bengaluru</span></figcaption>
+      <div class="seal-frame">
+        <img src="{p}assets/lion-gold.png" alt="The Royston Realty winged lion" width="750" height="759">
+        <span class="seal-rule" aria-hidden="true"></span>
+        <figcaption><span class="seal-name">Royston Realty</span><span class="seal-sub">Premium property advisory, Bengaluru</span></figcaption>
+      </div>
     </figure>
   </div>
 </section>
-
-<section class="section section--stone">
+{router(p)}
+<section class="section listings-home" data-listings-section hidden>
+  <div class="wrap">
+    <div class="row-head"><h2>Available now</h2><a class="textlink" href="{p}listings.html">See all listings</a></div>
+    <ul class="listings" data-listings data-limit="3" data-base="{p}"></ul>
+  </div>
+</section>
+{coverage(p)}
+<section class="section">
   <div class="wrap split">
     <h2>Most property firms chase volume. We chose the opposite.</h2>
     <div>
@@ -328,7 +408,7 @@ def home(p):
   </div>
 </section>
 
-<section class="section">
+<section class="section section--stone">
   <div class="wrap">
     <div class="split">
       <h2>Seven services, one advisor.</h2>
@@ -340,7 +420,7 @@ def home(p):
   </div>
 </section>
 
-<section class="section section--stone">
+<section class="section">
   <div class="wrap">
     <h2 class="measure">Four steps. No surprises at the table.</h2>
     <ol class="steps">
@@ -350,12 +430,13 @@ def home(p):
   </div>
 </section>
 
-<section class="section">
+<section class="section section--stone">
   <div class="wrap">
-    <h2 class="measure">Built for people who value their time as much as their property.</h2>
-    <div class="grid-4">
-{audience_html()}
-    </div>
+    <div class="row-head"><h2>What we tell our clients</h2><a class="textlink" href="{p}guides/index.html">All guides</a></div>
+    <p class="lead" style="margin-top:16px">Plain-language guides to the decisions people ask us about most.</p>
+    <ul class="guide-cards">
+{guide_cards(p)}
+    </ul>
   </div>
 </section>
 {insta(p)}
@@ -363,9 +444,8 @@ def home(p):
 
 
 page("index.html", "home", "Royston Realty | Premium property advisory in Bengaluru",
-     "Royston Realty is a premium property advisory in Bengaluru. Sales, leasing, land, property management, civil works, interiors and legal from one accountable team, with every fee in writing.",
-     home, extra=f'<script type="application/ld+json">{json.dumps(LD)}</script>\n')
-
+     "Royston Realty is a premium property advisory in Bengaluru. Rentals, new launches, resale, land, property management, interiors and legal from one accountable team, with every fee in writing.",
+     home, extra=f'<script type="application/ld+json">{json.dumps(LD)}</script>\n<script src="assets/data/listings.js" defer></script>\n')
 
 # ---------- Services index ----------
 def services_index(p):
@@ -522,23 +602,120 @@ page("approach.html", "approach", "Our approach | Royston Realty", "How Royston 
 
 # ---------- Neighbourhoods ----------
 def hoods(p):
-    a = "\n".join(f"<li><h3>{x}</h3><p>{y}</p></li>" for x, y in AREAS)
+    zones = []
+    for zname, key, places in ZONES:
+        items = "".join(f"<li><h4>{n}</h4><p>{d}</p></li>" for n, _, _, d in places)
+        if key == "n":
+            items += f"<li><h4>Devanahalli</h4><p>{DEVANAHALLI.split(': ',1)[1].capitalize()}</p></li>"
+        zones.append(f'<section class="zone"><h3><span style="background:{ZCOL[key]}"></span>{zname}</h3><ul>{items}</ul></section>')
     return page_head(p, [("index.html", "Home"), (None, "Neighbourhoods")],
                      "Bengaluru, known street by street.",
-                     "These are the micro-markets we transact in most and know best. We also take on select mandates elsewhere in Bengaluru and across Karnataka when the brief calls for it.") + f"""
-<section class="section" style="padding-top:24px">
-  <div class="wrap">
-    <ul class="areas" style="margin-top:0;border-top:0">
-{a}
-    </ul>
-    <p class="muted measure" style="margin-top:40px">Looking somewhere not listed here? <a class="textlink" href="{p}contact.html">Tell us the area</a> and we'll say plainly whether we know it well enough to help.</p>
+                     "These are the micro-markets we transact in most and know best. We also take on select mandates elsewhere in Bengaluru and across Karnataka when the brief calls for it.") + coverage(p, full=True) + f"""
+<section class="section section--stone">
+  <div class="wrap zones">
+{''.join(zones)}
   </div>
+  <div class="wrap"><p class="muted measure" style="margin-top:48px">Looking somewhere not listed here? <a class="textlink" href="{p}contact.html">Tell us the area</a> and we'll say plainly whether we know it well enough to help.</p></div>
 </section>
 {cta(p)}"""
 
 
 page("neighbourhoods.html", "neighbourhoods", "Neighbourhoods we cover | Royston Realty", "Royston Realty works across Central, South, East and North Bengaluru: Indiranagar, Koramangala, Whitefield, Sarjapur Road, Hebbal, Devanahalli and more.", hoods)
 
+
+# ---------- Listings ----------
+def listings(p):
+    return page_head(p, [("index.html", "Home"), (None, "Listings")],
+                     "Homes and spaces we're representing now.",
+                     "A selection of what's available. Much of our inventory is shared privately with clients first, so if you don't see the right fit here, tell us your brief.") + f"""
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <div class="filters" role="group" aria-label="Filter listings" data-filters hidden>
+      <button type="button" aria-pressed="true" data-filter="all">All</button>
+      <button type="button" aria-pressed="false" data-filter="Rent">For rent</button>
+      <button type="button" aria-pressed="false" data-filter="Resale">Resale</button>
+      <button type="button" aria-pressed="false" data-filter="New launch">New launch</button>
+    </div>
+    <ul class="listings" data-listings data-base="{p}"></ul>
+    <div class="private" data-listings-empty>
+      <img src="{p}assets/lion-gold.png" alt="" width="64" height="64">
+      <div>
+        <h2>Most of our best homes never reach a portal.</h2>
+        <p class="muted">Owners in premium projects often prefer their homes shown only to verified, serious clients. Tell us the area, size, budget and move-in date, and we'll send matching options, with photos and the numbers, within one working day.</p>
+        <div class="actions">
+          <a class="btn btn--primary" href="{p}contact.html">Share your brief</a>
+          <a class="btn btn--ghost" href="{WA_HELLO}" target="_blank" rel="noopener">{I_WA}WhatsApp us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section--stone">
+  <div class="wrap split">
+    <h2>Own a premium home you want to lease or sell?</h2>
+    <div>
+      <p class="statement">We'll value it from real transactions, photograph it properly and show it only to people we've verified.</p>
+      <p><a class="textlink" href="{p}services/leasing.html">Leasing for owners</a> &nbsp;&nbsp; <a class="textlink" href="{p}services/sales.html">Selling with us</a></p>
+    </div>
+  </div>
+</section>
+{cta(p)}"""
+
+
+page("listings.html", "listings", "Listings: homes for rent and sale in Bengaluru | Royston Realty",
+     "Premium apartments, villas and homes for rent, resale and new launch in Bengaluru, represented by Royston Realty.", listings,
+     extra='<script src="assets/data/listings.js" defer></script>\n')
+
+
+# ---------- Guides ----------
+def guides_index(p):
+    return page_head(p, [("index.html", "Home"), (None, "Guides")],
+                     "What we tell our clients.",
+                     "Plain-language guides to renting, buying and owning property in Bengaluru, written from the questions we're asked most.") + f"""
+<section class="section" style="padding-top:48px">
+  <div class="wrap">
+    <ul class="guide-cards" style="margin-top:0">
+{guide_cards(p)}
+    </ul>
+  </div>
+</section>
+{cta(p)}"""
+
+
+page("guides/index.html", "guides", "Property guides for Bengaluru | Royston Realty",
+     "Guides to renting out your home, buying resale and new launch property, and owning in Bengaluru as an NRI.", guides_index)
+
+for g in GUIDES:
+    def gbody(p, g=g):
+        toc = "".join(f'<li><a href="#s{i}">{h}</a></li>' for i, (h, _) in enumerate(g["sections"], 1))
+        secs = "".join(f'<section id="s{i}"><h2>{h}</h2>' + "".join(f"<p>{x}</p>" for x in paras) + "</section>"
+                       for i, (h, paras) in enumerate(g["sections"], 1))
+        others = "".join(f'<li><a href="{o["slug"]}.html">{o["title"]}</a></li>' for o in GUIDES if o is not g)
+        sv = SV[g["service"]]
+        return page_head(p, [("index.html", "Home"), ("guides/index.html", "Guides"), (None, g["audience"])],
+                         g["title"], g["summary"]) + f"""
+<section class="section">
+  <div class="wrap article">
+    <aside class="toc"><p>In this guide</p><ol>{toc}</ol></aside>
+    <article class="prose">
+{secs}
+      <p class="disclaimer">This guide is general information to help you ask the right questions. It isn't legal or tax advice, and rules change, so confirm the specifics for your situation before you act.</p>
+    </article>
+    <aside>
+      <div class="aside-card">
+        <h3>Want us to handle it?</h3>
+        <p>Our {sv["name"].lower()} practice does all of this for you, with fees agreed in writing first.</p>
+        <a class="btn btn--primary" href="../services/{sv["slug"]}.html">{sv["name"]}</a>
+        <a class="btn btn--ghost" href="{WA_HELLO}" target="_blank" rel="noopener" style="margin-top:10px">{I_WA}WhatsApp us</a>
+        <hr>
+        <p style="margin-bottom:6px;color:var(--ink);font-weight:500">More guides</p>
+        <ul>{others}</ul>
+      </div>
+    </aside>
+  </div>
+</section>
+{cta(p)}"""
+    page(f"guides/{g['slug']}.html", "guides", f"{g['title']} | Royston Realty", g["summary"], gbody)
 
 # ---------- FAQ ----------
 FAQ_LD = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
@@ -626,7 +803,7 @@ h = head("/", "Page not found | Royston Realty", "This page could not be found."
 open(os.path.join(OUT, "404.html"), "w").write(h + nf("/") + foot("/"))
 
 # ---------- sitemap / robots ----------
-pages = ["", "services/", *[f"services/{s['slug']}.html" for s in SERVICES], "about.html", "approach.html", "neighbourhoods.html", "faq.html", "contact.html"]
+pages = ["", "services/", *[f"services/{s['slug']}.html" for s in SERVICES], "about.html", "approach.html", "neighbourhoods.html", "faq.html", "contact.html", "listings.html", "guides/", *[f"guides/{g['slug']}.html" for g in GUIDES]]
 sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
 for u in pages:
     sm.append(f"  <url><loc>{DOMAIN}/{u}</loc><lastmod>2026-10-01</lastmod><priority>{'1.0' if u == '' else '0.8'}</priority></url>")
